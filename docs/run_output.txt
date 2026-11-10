@@ -1,0 +1,32 @@
+===== 1) BUILDER =====
+StudentAccount{id='20240001', name='Amine Haddad', email='amine.haddad@univ.dz', phone=null, level=L1, major=null, scholarship=false, courses=[]}
+StudentAccount{id='20240002', name='Sara Meziane', email='sara.meziane@univ.dz', phone=0550123456, level=M1, major=Computer Science, scholarship=true, courses=[Design Patterns, Databases]}
+Invalid account refused: email must contain the @ symbol
+
+===== 2) SINGLETON =====
+repo == repo2 ? true
+log1 == log2  ? true
+Duplicate refused: id already exists: 20240001
+
+===== 3) PROTOTYPE =====
+StudentAccount{id='20240101', name='Yacine Bensalem', email='yacine@univ.dz', phone=null, level=L2, major=Computer Science, scholarship=false, courses=[Algorithms, Java OOP, Databases]}
+StudentAccount{id='20240102', name='Nadia Ouali', email='nadia@univ.dz', phone=null, level=L2, major=Computer Science, scholarship=false, courses=[Algorithms, Java OOP, Databases]}
+After adding a course to b only:
+  template courses = [Algorithms, Java OOP, Databases]
+  a courses        = [Algorithms, Java OOP, Databases]
+  b courses        = [Algorithms, Java OOP, Databases, English]
+
+===== Repository: 5 accounts =====
+20240001 | Amine Haddad | L1 | null
+20240002 | Sara Meziane | M1 | Computer Science
+20240101 | Yacine Bensalem | L2 | Computer Science
+20240102 | Nadia Ouali | L2 | Computer Science
+20240103 | Lina Kaci | L2 | Computer Science
+
+===== Audit log =====
+[2026-11-10 20:28:11] CREATED - account 20240001 (Amine Haddad)
+[2026-11-10 20:28:11] CREATED - account 20240002 (Sara Meziane)
+[2026-11-10 20:28:11] REJECTED - duplicate id 20240001
+[2026-11-10 20:28:11] CREATED - account 20240101 (Yacine Bensalem)
+[2026-11-10 20:28:11] CREATED - account 20240102 (Nadia Ouali)
+[2026-11-10 20:28:11] CREATED - account 20240103 (Lina Kaci)
